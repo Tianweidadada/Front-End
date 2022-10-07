@@ -19,3 +19,32 @@
         <Component content={content} arg={number} />
     }
     ```
+
+* return clauses
+  * This is not work
+    ```javascript
+      const Course = ({course}) => {
+        <div>
+          <Header course_name={course.name} />
+          <Content parts={course.parts} />
+        </div>
+      };
+    ```
+  * right way
+    ```javascript
+      const Course = ({course}) => 
+          <div>
+            <Header course_name={course.name} />
+            <Content parts={course.parts} />
+          </div>
+      
+      // This is equavilent to bellow
+    const Course = ({course}) => {
+        return (
+          <div>
+            <Header course_name={course.name} />
+            <Content parts={course.parts} />
+          </div>
+        )
+      };
+    ```
